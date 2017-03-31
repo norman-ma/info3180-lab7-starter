@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import urlparse
 
 url = "https://www.walmart.com/ip/54649026"
+#url = "https://www.asus.com/Notebooks/"
 result = requests.get(url)
 soup = BeautifulSoup(result.text, "html.parser")
 
@@ -20,7 +21,7 @@ if thumbnail_spec and thumbnail_spec['href']:
     print ''
 
 
-image = """<img src="%s"><br />"""
+image = "%s"
 for img in soup.findAll("img", src=True):
    print image % urlparse.urljoin(url, img["src"])
    print ''
