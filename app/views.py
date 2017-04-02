@@ -24,11 +24,15 @@ def home():
     return render_template('home.html')
 
 
-@app.route('/api/thumbnails',methods = ['POST'])
+@app.route('/api/thumbnails',methods = ['GET'])
 def thumbnails():
-    if request.method == "POST":
-        if  "application/json" in request.headers['CONTENT-TYPE']:
-            return jsonify(error = None, message = 'Success', thumbnails=get(url))
+    if request.method == "GET":
+        #if  "application/json" in request.headers['CONTENT-TYPE']:
+        return jsonify(error = None, message = 'Success', thumbnails=get(url))
+        
+@app.route('/thumbnails/view')
+def viewThumbnails():
+    return render_template('thumbnails.html')
 ###
 # The functions below should be applicable to all Flask apps.
 ###

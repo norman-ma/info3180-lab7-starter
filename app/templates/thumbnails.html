@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div ng-app='ThumbnailApp'>
+    <div ng-controller='ctrl'>
+        <div class='container'>
+            <div class='thumbnails' ng-repeat='link in data.thumbnails track by $index'>
+                <div style = 'float:left; border: solid grey 1px; width: 300px; margin-top:10px; border-radius: 5px;'>
+                    <img ng-src= "{{ '{{ data.thumbnails[$index] }}' }}" style = 'display: block; margin-left: auto; margin-right: auto; height:150px; padding: 5px;'>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
